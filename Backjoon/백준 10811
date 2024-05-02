@@ -1,0 +1,27 @@
+n,m = input().split()
+n = int(n)
+m = int(m)
+
+list =[]
+
+for i in range(1,n+1):
+    list.append(i)
+    
+def changed(list,i,j):
+    if(j - i == 1):
+        return list
+    
+    change = list[i]
+    list[j] = list[i]
+    list[j] = change
+    i+=1
+    j-=1    
+    return changed(list,i,j)
+
+
+for x in range(m):
+    i,j = input().split()
+    i = int(i)
+    j = int(j)
+    list = changed(list,i,j)
+print(list)
